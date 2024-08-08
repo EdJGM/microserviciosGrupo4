@@ -5,6 +5,24 @@
 # Grupo 3
 
 # Grupo 4
+version: '3.7'
+services:
+  comentarios-service:
+    restart: always
+    build:
+      context: ./comentarios
+      dockerfile: Dockerfile
+      volumes:
+        - ./comentarios:/app
+    ports:
+      - "5000:8000"
+    networks:
+      - app-network 
+    container_name: comentarios-service
+
+networks:
+  app-network:
+    driver: bridge
 
 # Grupo 5
 
