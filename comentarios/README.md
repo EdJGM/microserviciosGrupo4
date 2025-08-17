@@ -73,3 +73,42 @@ Estructura del Proyecto
 - app/models/comment.py: Modelo de datos para los comentarios.
 - app/schemas/comment.py: Esquemas para serializar y deserializar comentarios.
 - app/routes/comments.py: Rutas de la API para manejar comentarios.
+
+### Dockerfile
+ Para crear un Dockerfile que defina cómo construir la imagen de Docker para el microservicio:
+ ```Dockerfile
+ # Usar la imagen base de Python
+ FROM python:3.7-slim
+ # Establecer el directorio de trabajo en /app
+ WORKDIR /app
+ # Copiar los archivos necesarios al contenedor
+ COPY . /app
+ # Instalar las dependencias
+ RUN pip install --no-cache-dir -r requirements.txt
+ # Exponer el puerto 8000
+ EXPOSE 8000
+ # Comando para ejecutar la aplicación
+ CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+ ```
+ ### Docker Compose
+ Luego, incluir este microservicio en un archivo `docker-compose.yml`:
+ ```yaml
+ version: '3.8'
+ services:
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+  fastapi_app:
+    build: .
+    container_name: fastapi_app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - mongodb
+ volumes:
+  mongo_data
+```
