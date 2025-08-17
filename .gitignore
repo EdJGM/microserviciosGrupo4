@@ -1,0 +1,83 @@
+# General
+*.log
+*.env
+*.DS_Store
+*.swp
+*.swo
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.db
+venv/
+.env/
+*.sqlite3
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+
+# Java
+*.class
+*.jar
+*.war
+*.ear
+*.iml
+*.ipr
+*.iws
+.idea/
+target/
+
+# FastAPI
+*.db
+
+# Docker
+*.pid
+
+# VSCode
+.vscode/
+
+# Otros
+*.bak
+*.tmp
+
+# Microservicios específicos
+# CRUD-Posts
+CRUD-Posts/app/__pycache__/
+CRUD-Posts/test.db
+
+# autenticacion
+autenticacion/db.sqlite3
+autenticacion/authentication/__pycache__/
+autenticacion/auth_service/__pycache__/
+autenticacion/authentication/migrations/__pycache__/
+
+# comentarios2
+comentarios2/database.db
+comentarios2/comment-microservice/database.db
+comentarios2/comment-microservice/src/config/comments.db
+comentarios2/comment-microservice/src/config/database.db
+
+# gestionpost
+gestionpost/target/
+gestionpost/.mvn/
+gestionpost/.idea/
+gestionpost/*.iml
+
+# comentarios
+comentarios/.env
+comentarios/.venv
+comentarios/__pycache__/
+comentarios/app/__pycache__/
+
+# auth
+auth/node_modules/
+auth/.env
+
+# Ignorar archivos de configuración locales
+*.local
